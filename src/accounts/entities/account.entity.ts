@@ -1,11 +1,13 @@
 import {
   Entity,
   EntityRepositoryType,
+  OneToOne,
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
 import { v4 } from 'uuid';
 import { AccountsRepository } from '../accounts.repository';
+import { WalletEntity } from 'src/wallets/entities/wallet.entity';
 
 @Entity({ tableName: 'accounts', repository: () => AccountsRepository })
 export class AccountEntity {
@@ -49,4 +51,7 @@ export class AccountEntity {
     nullable: true,
   })
   deletedAt?: Date;
+
+  @OneToOne(() => WalletEntity)
+  wallet: WalletEntity;
 }
