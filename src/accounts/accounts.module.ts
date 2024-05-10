@@ -6,7 +6,7 @@ import { AccountEntity } from './entities/account.entity';
 import { AccountsRepository } from './accounts.repository';
 
 @Module({
-  imports: [MikroOrmModule.forFeature([AccountEntity])],
+  imports: [MikroOrmModule.forFeature({ entities: [AccountEntity] })],
   controllers: [AccountsController],
   providers: [AccountsService, AccountsRepository],
 })
