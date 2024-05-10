@@ -13,7 +13,78 @@
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "default": "'ce4d9f9a-aa63-4744-adb5-d51c1cac191f'",
+          "default": "'160da5ec-7f2c-4374-82e8-a5eb1987712c'",
+          "mappedType": "uuid"
+        },
+        "balance": {
+          "name": "balance",
+          "type": "numeric(10,0)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "precision": 10,
+          "scale": 0,
+          "default": "0",
+          "mappedType": "decimal"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "date",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "date"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "date",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "date"
+        },
+        "deleted_at": {
+          "name": "deleted_at",
+          "type": "date",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "default": "null",
+          "mappedType": "date"
+        }
+      },
+      "name": "wallets",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "wallets_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {},
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "'b9a56770-70ea-4735-b6fc-b17f7b6cda8e'",
           "mappedType": "uuid"
         },
         "username": {
@@ -61,11 +132,30 @@
           "nullable": true,
           "default": "null",
           "mappedType": "date"
+        },
+        "wallet_id": {
+          "name": "wallet_id",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "uuid"
         }
       },
       "name": "accounts",
       "schema": "public",
       "indexes": [
+        {
+          "columnNames": [
+            "wallet_id"
+          ],
+          "composite": false,
+          "keyName": "accounts_wallet_id_unique",
+          "constraint": true,
+          "primary": false,
+          "unique": true
+        },
         {
           "keyName": "accounts_pkey",
           "columnNames": [
@@ -78,7 +168,20 @@
         }
       ],
       "checks": [],
-      "foreignKeys": {},
+      "foreignKeys": {
+        "accounts_wallet_id_foreign": {
+          "constraintName": "accounts_wallet_id_foreign",
+          "columnNames": [
+            "wallet_id"
+          ],
+          "localTableName": "public.accounts",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.wallets",
+          "updateRule": "cascade"
+        }
+      },
       "nativeEnums": {}
     }
   ],
