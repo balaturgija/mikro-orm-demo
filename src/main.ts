@@ -2,9 +2,19 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
+import { RequestBodyValidationPipe } from './common/pipes/request-body.validation.pipe';
+import { RequestQueryValidationPipe } from './common/pipes/request-query.validation.pipe';
+import { CommonExceptionFilter } from './common/filters/common-exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  app.useGlobalPipes(
+    new RequestBodyValidationPipe(),
+    new RequestQueryValidationPipe(),
+  );
+
+  app.useGlobalFilters(new CommonExceptionFilter());
 
   const config = new DocumentBuilder()
     .setTitle('Example API')
