@@ -1,9 +1,10 @@
-import { Module } from '@nestjs/common';
-import { AccountsService } from './accounts.service';
-import { AccountsController } from './accounts.controller';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
+import { Module } from '@nestjs/common';
+
 import { AccountEntity } from './entities/account.entity';
+import { AccountsController } from './accounts.controller';
 import { AccountsRepository } from './accounts.repository';
+import { AccountsService } from './accounts.service';
 
 @Module({
   imports: [MikroOrmModule.forFeature({ entities: [AccountEntity] })],

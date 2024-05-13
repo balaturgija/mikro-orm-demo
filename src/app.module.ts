@@ -1,14 +1,15 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+
+import { AccountsModule } from './accounts/accounts.module';
+import { AssetsModule } from './assets/assets.module';
+import { DatabaseModule } from './database/database.module';
+import { OrdersModule } from './orders/orders.module';
+import { PortfoliosModule } from './portfolios/portfolios.module';
+import { TransactionsModule } from './transactions/transactions.module';
+import { WalletsModule } from './wallets/wallets.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ConfigModule } from '@nestjs/config';
-import { DatabaseModule } from './database/database.module';
-import { AccountsModule } from './accounts/accounts.module';
-import { WalletsModule } from './wallets/wallets.module';
-import { AssetsModule } from './assets/assets.module';
-import { PortfoliosModule } from './portfolios/portfolios.module';
-import { OrdersModule } from './orders/orders.module';
-import { TransactionsModule } from './transactions/transactions.module';
 
 @Module({
   imports: [

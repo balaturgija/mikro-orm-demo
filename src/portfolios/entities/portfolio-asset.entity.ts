@@ -6,10 +6,12 @@ import {
   PrimaryKeyProp,
   Property,
 } from '@mikro-orm/core';
-import { v4 } from 'uuid';
-import { PortfolioEntity } from './portfolio.entity';
 import { AssetEntity } from 'src/assets/entities/asset.entity';
+import { v4 } from 'uuid';
+
 import { PortfolioAssetsRepository } from '../repositories/portfolio-assets.repository';
+
+import { PortfolioEntity } from './portfolio.entity';
 
 @Entity({
   tableName: 'portfolio_assets',

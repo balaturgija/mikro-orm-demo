@@ -9,8 +9,10 @@ import {
 } from '@mikro-orm/core';
 import { AccountEntity } from 'src/accounts/entities/account.entity';
 import { v4 } from 'uuid';
-import { PortfolioAssetEntity } from './portfolio-asset.entity';
+
 import { PortfoliosRepository } from '../repositories/portfolios.repository';
+
+import { PortfolioAssetEntity } from './portfolio-asset.entity';
 
 @Entity({ tableName: 'portfolios', repository: () => PortfoliosRepository })
 export class PortfolioEntity {

@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { PortfoliosController } from './portfolios.controller';
+
 import { PortfoliosService } from './services/portfolios.service';
+import { PortfoliosController } from './portfolios.controller';
 
 describe('PortfoliosController', () => {
   let controller: PortfoliosController;

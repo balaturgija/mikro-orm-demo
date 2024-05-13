@@ -5,12 +5,13 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { OrdersRepository } from '../orders.repository';
+import { AccountEntity } from 'src/accounts/entities/account.entity';
+import { AssetEntity } from 'src/assets/entities/asset.entity';
 import { v4 } from 'uuid';
+
+import { OrdersRepository } from '../orders.repository';
 import { OrderType } from '../types/order.type';
 import { OrderStatus } from '../types/order-status.type';
-import { AssetEntity } from 'src/assets/entities/asset.entity';
-import { AccountEntity } from 'src/accounts/entities/account.entity';
 
 @Entity({ tableName: 'orders', repository: () => OrdersRepository })
 export class OrderEntity {

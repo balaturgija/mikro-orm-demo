@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+
 import { WalletsRepository } from './wallets.repository';
 
 @Injectable()

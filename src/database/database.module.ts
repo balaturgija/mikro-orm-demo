@@ -1,8 +1,9 @@
 import { MikroOrmModule } from '@mikro-orm/nestjs';
-import { Module } from '@nestjs/common';
-import config from './mikro-orm.config';
-import { ConfigService } from '@nestjs/config';
 import { defineConfig } from '@mikro-orm/postgresql';
+import { Module } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+
+import config from './mikro-orm.config';
 
 @Module({
   imports: [

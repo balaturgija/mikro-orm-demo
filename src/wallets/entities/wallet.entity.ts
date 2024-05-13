@@ -5,9 +5,10 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { WalletsRepository } from '../wallets.repository';
-import { v4 } from 'uuid';
 import { AccountEntity } from 'src/accounts/entities/account.entity';
+import { v4 } from 'uuid';
+
+import { WalletsRepository } from '../wallets.repository';
 
 @Entity({ tableName: 'wallets', repository: () => WalletsRepository })
 export class WalletEntity {

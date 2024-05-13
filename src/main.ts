@@ -1,10 +1,11 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ConfigService } from '@nestjs/config';
+import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+
+import { CommonExceptionFilter } from './common/filters/common-exception.filter';
 import { RequestBodyValidationPipe } from './common/pipes/request-body.validation.pipe';
 import { RequestQueryValidationPipe } from './common/pipes/request-query.validation.pipe';
-import { CommonExceptionFilter } from './common/filters/common-exception.filter';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

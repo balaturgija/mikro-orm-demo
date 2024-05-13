@@ -1,9 +1,10 @@
+import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { Module } from '@nestjs/common';
-import { WalletsService } from './wallets.service';
+
+import { WalletEntity } from './entities/wallet.entity';
 import { WalletsController } from './wallets.controller';
 import { WalletsRepository } from './wallets.repository';
-import { MikroOrmModule } from '@mikro-orm/nestjs';
-import { WalletEntity } from './entities/wallet.entity';
+import { WalletsService } from './wallets.service';
 
 @Module({
   imports: [MikroOrmModule.forFeature({ entities: [WalletEntity] })],

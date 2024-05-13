@@ -7,11 +7,12 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { v4 } from 'uuid';
-import { AccountsRepository } from '../accounts.repository';
-import { WalletEntity } from 'src/wallets/entities/wallet.entity';
-import { PortfolioEntity } from 'src/portfolios/entities/portfolio.entity';
 import { OrderEntity } from 'src/orders/entities/orders.entity';
+import { PortfolioEntity } from 'src/portfolios/entities/portfolio.entity';
+import { WalletEntity } from 'src/wallets/entities/wallet.entity';
+import { v4 } from 'uuid';
+
+import { AccountsRepository } from '../accounts.repository';
 
 @Entity({ tableName: 'accounts', repository: () => AccountsRepository })
 export class AccountEntity {
