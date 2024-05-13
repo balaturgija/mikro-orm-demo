@@ -5,6 +5,8 @@ import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
 import { AccountsModule } from './accounts/accounts.module';
 import { WalletsModule } from './wallets/wallets.module';
+import { AssetsModule } from './assets/assets.module';
+import { PortfoliosModule } from './portfolios/portfolios.module';
 
 @Module({
   imports: [
@@ -16,6 +18,8 @@ import { WalletsModule } from './wallets/wallets.module';
     DatabaseModule,
     AccountsModule,
     WalletsModule,
+    AssetsModule,
+    PortfoliosModule,
   ],
   controllers: [AppController],
   providers: [AppService],

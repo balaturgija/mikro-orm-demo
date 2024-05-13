@@ -13,7 +13,230 @@
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "default": "'160da5ec-7f2c-4374-82e8-a5eb1987712c'",
+          "default": "'5a4abc32-dd16-45f6-97c9-42f9f624f7f3'",
+          "mappedType": "uuid"
+        },
+        "symbol": {
+          "name": "symbol",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "text"
+        },
+        "current_price": {
+          "name": "current_price",
+          "type": "int",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "integer"
+        },
+        "market_cap": {
+          "name": "market_cap",
+          "type": "int",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "integer"
+        }
+      },
+      "name": "assets",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "assets_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {},
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "'ecbcfa2b-28a4-405d-a3bf-9b358cf954be'",
+          "mappedType": "uuid"
+        }
+      },
+      "name": "portfolios",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "portfolios_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {},
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "portfolio_id": {
+          "name": "portfolio_id",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "'e82ee9f2-7276-40ba-a0fc-d0a26e17f570'",
+          "mappedType": "uuid"
+        },
+        "asset_id": {
+          "name": "asset_id",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "'2d7898b8-093d-4612-b09e-4d6a2385d58b'",
+          "mappedType": "uuid"
+        },
+        "quantity": {
+          "name": "quantity",
+          "type": "numeric(10,0)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "precision": 10,
+          "scale": 0,
+          "default": "0",
+          "mappedType": "decimal"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "date",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "date"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "date",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "date"
+        },
+        "deleted_at": {
+          "name": "deleted_at",
+          "type": "date",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "default": "null",
+          "mappedType": "date"
+        },
+        "portfolioId": {
+          "name": "portfolioId",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "uuid"
+        },
+        "assetId": {
+          "name": "assetId",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "uuid"
+        }
+      },
+      "name": "portfolio_assets",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "portfolio_assets_pkey",
+          "columnNames": [
+            "portfolio_id",
+            "asset_id"
+          ],
+          "composite": true,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "portfolio_assets_portfolioId_foreign": {
+          "constraintName": "portfolio_assets_portfolioId_foreign",
+          "columnNames": [
+            "portfolioId"
+          ],
+          "localTableName": "public.portfolio_assets",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.portfolios",
+          "updateRule": "cascade"
+        },
+        "portfolio_assets_assetId_foreign": {
+          "constraintName": "portfolio_assets_assetId_foreign",
+          "columnNames": [
+            "assetId"
+          ],
+          "localTableName": "public.portfolio_assets",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.assets",
+          "updateRule": "cascade"
+        }
+      },
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "default": "'7bccad63-77df-4ddb-83e4-11c458286dfa'",
           "mappedType": "uuid"
         },
         "balance": {
@@ -27,6 +250,15 @@
           "scale": 0,
           "default": "0",
           "mappedType": "decimal"
+        },
+        "currency": {
+          "name": "currency",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "text"
         },
         "created_at": {
           "name": "created_at",
@@ -84,7 +316,6 @@
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "default": "'b9a56770-70ea-4735-b6fc-b17f7b6cda8e'",
           "mappedType": "uuid"
         },
         "username": {
@@ -141,6 +372,15 @@
           "primary": false,
           "nullable": false,
           "mappedType": "uuid"
+        },
+        "portfolio_id": {
+          "name": "portfolio_id",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "uuid"
         }
       },
       "name": "accounts",
@@ -152,6 +392,16 @@
           ],
           "composite": false,
           "keyName": "accounts_wallet_id_unique",
+          "constraint": true,
+          "primary": false,
+          "unique": true
+        },
+        {
+          "columnNames": [
+            "portfolio_id"
+          ],
+          "composite": false,
+          "keyName": "accounts_portfolio_id_unique",
           "constraint": true,
           "primary": false,
           "unique": true
@@ -179,6 +429,18 @@
             "id"
           ],
           "referencedTableName": "public.wallets",
+          "updateRule": "cascade"
+        },
+        "accounts_portfolio_id_foreign": {
+          "constraintName": "accounts_portfolio_id_foreign",
+          "columnNames": [
+            "portfolio_id"
+          ],
+          "localTableName": "public.accounts",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.portfolios",
           "updateRule": "cascade"
         }
       },

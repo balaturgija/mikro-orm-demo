@@ -13,39 +13,23 @@ import { AccountEntity } from 'src/accounts/entities/account.entity';
 export class WalletEntity {
   [EntityRepositoryType]?: WalletsRepository;
 
-  @PrimaryKey({
-    type: 'uuid',
-    default: v4(),
-    nullable: false,
-    primary: true,
-  })
+  @PrimaryKey({ type: 'uuid', default: v4(), nullable: false, primary: true })
   id = v4();
 
-  @Property({
-    type: 'numeric',
-    default: 0,
-    nullable: false,
-  })
+  @Property({ type: 'numeric(10,2)', default: 0, nullable: false })
   balance = 0;
 
-  @Property({
-    type: 'date',
-    onCreate: () => new Date(),
-  })
+  @Property({ type: 'text', nullable: false })
+  currency: string;
+
+  @Property({ type: 'date', onCreate: () => new Date() })
   createdAt = new Date();
 
-  @Property({
-    type: 'date',
-    onUpdate: () => new Date(),
-  })
+  @Property({ type: 'date', onUpdate: () => new Date() })
   updatedAt = new Date();
 
-  @Property({
-    type: 'date',
-    default: null,
-    nullable: true,
-  })
-  deletedAt?: Date;
+  @Property({ type: 'date', default: null, nullable: true })
+  deletedAt?: Date | null;
 
   @OneToOne(() => AccountEntity, (account) => account.wallet)
   account: AccountEntity;
