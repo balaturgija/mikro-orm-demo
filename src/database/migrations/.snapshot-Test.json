@@ -13,7 +13,7 @@
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "default": "'5a4abc32-dd16-45f6-97c9-42f9f624f7f3'",
+          "default": "'a5c46a36-4a49-43b2-885e-4b5d37997e6d'",
           "mappedType": "uuid"
         },
         "symbol": {
@@ -80,7 +80,7 @@
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "default": "'ecbcfa2b-28a4-405d-a3bf-9b358cf954be'",
+          "default": "'53964d99-6be7-4b9b-a823-6f3ae47058a4'",
           "mappedType": "uuid"
         }
       },
@@ -111,7 +111,7 @@
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "default": "'e82ee9f2-7276-40ba-a0fc-d0a26e17f570'",
+          "default": "'fa0b199d-2757-4268-8f18-b635e25f0b1c'",
           "mappedType": "uuid"
         },
         "asset_id": {
@@ -121,7 +121,7 @@
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "default": "'2d7898b8-093d-4612-b09e-4d6a2385d58b'",
+          "default": "'84b7f745-6d52-4205-b618-665eea63010c'",
           "mappedType": "uuid"
         },
         "quantity": {
@@ -236,7 +236,7 @@
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "default": "'7bccad63-77df-4ddb-83e4-11c458286dfa'",
+          "default": "'afa13209-8728-459f-8ff5-46b6325fa380'",
           "mappedType": "uuid"
         },
         "balance": {
@@ -441,6 +441,148 @@
             "id"
           ],
           "referencedTableName": "public.portfolios",
+          "updateRule": "cascade"
+        }
+      },
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "uuid"
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "text"
+        },
+        "quantity": {
+          "name": "quantity",
+          "type": "numeric(10,0)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "precision": 10,
+          "scale": 0,
+          "mappedType": "decimal"
+        },
+        "remaining_quantity": {
+          "name": "remaining_quantity",
+          "type": "numeric(10,0)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "precision": 10,
+          "scale": 0,
+          "mappedType": "decimal"
+        },
+        "price_per_unit": {
+          "name": "price_per_unit",
+          "type": "numeric(10,0)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "precision": 10,
+          "scale": 0,
+          "mappedType": "decimal"
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "text"
+        },
+        "asset_id": {
+          "name": "asset_id",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "uuid"
+        },
+        "account_id": {
+          "name": "account_id",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "uuid"
+        },
+        "assetId": {
+          "name": "assetId",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "uuid"
+        },
+        "accountId": {
+          "name": "accountId",
+          "type": "uuid",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "uuid"
+        }
+      },
+      "name": "orders",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "orders_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "orders_assetId_foreign": {
+          "constraintName": "orders_assetId_foreign",
+          "columnNames": [
+            "assetId"
+          ],
+          "localTableName": "public.orders",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.assets",
+          "updateRule": "cascade"
+        },
+        "orders_accountId_foreign": {
+          "constraintName": "orders_accountId_foreign",
+          "columnNames": [
+            "accountId"
+          ],
+          "localTableName": "public.orders",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.accounts",
           "updateRule": "cascade"
         }
       },
