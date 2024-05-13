@@ -4,25 +4,12 @@ import { Migrator } from '@mikro-orm/migrations';
 import { defineConfig, PostgreSqlDriver } from '@mikro-orm/postgresql';
 import { SeedManager } from '@mikro-orm/seeder';
 import { ConfigService } from '@nestjs/config';
-import { AccountEntity } from 'src/accounts/entities/account.entity';
-import { AssetEntity } from 'src/assets/entities/asset.entity';
-import { OrderEntity } from 'src/orders/entities/orders.entity';
-import { PortfolioAssetEntity } from 'src/portfolios/entities/portfolio-asset.entity';
-import { PortfolioEntity } from 'src/portfolios/entities/portfolio.entity';
-import { WalletEntity } from 'src/wallets/entities/wallet.entity';
 
 const configService = new ConfigService();
 
 export default defineConfig({
   entities: ['./dist/*/entities/*.entity.js'],
-  entitiesTs: [
-    AccountEntity,
-    WalletEntity,
-    AssetEntity,
-    PortfolioEntity,
-    PortfolioAssetEntity,
-    OrderEntity,
-  ],
+  entitiesTs: ['./src/*/entities/*.entity.ts'],
   driver: PostgreSqlDriver,
   dbName: 'Test',
   password: 'postgres',
