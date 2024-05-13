@@ -31,6 +31,7 @@ export class WalletEntity {
   @Property({ type: 'date', default: null, nullable: true })
   deletedAt?: Date | null;
 
+  /* Associations */
   @OneToOne(() => AccountEntity, (account) => account.wallet)
   account: AccountEntity;
 }

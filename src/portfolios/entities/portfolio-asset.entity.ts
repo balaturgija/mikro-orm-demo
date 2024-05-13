@@ -17,6 +17,7 @@ import { PortfolioAssetsRepository } from '../repositories/portfolio-assets.repo
 })
 export class PortfolioAssetEntity {
   [EntityRepositoryType]?: PortfolioAssetsRepository;
+  [PrimaryKeyProp]?: ['portfolioId', 'assetId'];
 
   @PrimaryKey({ type: 'uuid', default: v4(), nullable: false, primary: true })
   portfolioId: string;
@@ -36,11 +37,10 @@ export class PortfolioAssetEntity {
   @Property({ type: 'date', default: null, nullable: true })
   deletedAt?: Date | null;
 
+  /* Associations */
   @ManyToOne(() => PortfolioEntity, { fieldName: 'portfolioId' })
   portfolio: PortfolioEntity;
 
   @ManyToOne(() => AssetEntity, { fieldName: 'assetId' })
   asset: AssetEntity;
-
-  [PrimaryKeyProp]?: ['portfolioId', 'assetId'];
 }

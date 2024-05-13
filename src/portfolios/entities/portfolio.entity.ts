@@ -18,6 +18,7 @@ export class PortfolioEntity {
   @PrimaryKey({ type: 'uuid', default: v4(), nullable: false, primary: true })
   id: string = v4();
 
+  /* Associations */
   @OneToOne(() => AccountEntity, (account) => account.portfolio)
   account: AccountEntity;
 

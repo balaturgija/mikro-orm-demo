@@ -1,6 +1,8 @@
 import {
+  Collection,
   Entity,
   EntityRepositoryType,
+  OneToMany,
   OneToOne,
   PrimaryKey,
   Property,
@@ -9,6 +11,7 @@ import { v4 } from 'uuid';
 import { AccountsRepository } from '../accounts.repository';
 import { WalletEntity } from 'src/wallets/entities/wallet.entity';
 import { PortfolioEntity } from 'src/portfolios/entities/portfolio.entity';
+import { OrderEntity } from 'src/orders/entities/orders.entity';
 
 @Entity({ tableName: 'accounts', repository: () => AccountsRepository })
 export class AccountEntity {
@@ -32,9 +35,13 @@ export class AccountEntity {
   @Property({ type: 'date', default: null, nullable: true })
   deletedAt?: Date;
 
+  /* Associations */
   @OneToOne(() => WalletEntity)
   wallet: WalletEntity;
 
   @OneToOne(() => PortfolioEntity)
   portfolio: PortfolioEntity;
+
+  @OneToMany(() => OrderEntity, (order) => order.account)
+  orders = new Collection<OrderEntity>(this);
 }
