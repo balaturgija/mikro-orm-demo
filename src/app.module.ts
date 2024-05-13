@@ -8,6 +8,7 @@ import { WalletsModule } from './wallets/wallets.module';
 import { AssetsModule } from './assets/assets.module';
 import { PortfoliosModule } from './portfolios/portfolios.module';
 import { OrdersModule } from './orders/orders.module';
+import { TransactionsModule } from './transactions/transactions.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { OrdersModule } from './orders/orders.module';
     AssetsModule,
     PortfoliosModule,
     OrdersModule,
+    TransactionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
