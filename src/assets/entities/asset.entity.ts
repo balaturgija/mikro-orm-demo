@@ -30,6 +30,15 @@ export class AssetEntity {
   @Property()
   marketCap: number;
 
+  @Property({ type: 'date', onCreate: () => new Date() })
+  createdAt = new Date();
+
+  @Property({ type: 'date', onUpdate: () => new Date() })
+  updatedAt = new Date();
+
+  @Property({ type: 'date', default: null, nullable: true })
+  deletedAt?: Date | null;
+
   /* Associations */
   @OneToMany(() => PortfolioAssetEntity, 'asset')
   portfolioAssets = new Collection<PortfolioAssetEntity>(this);

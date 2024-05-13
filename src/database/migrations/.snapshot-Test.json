@@ -13,7 +13,7 @@
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "default": "'a5c46a36-4a49-43b2-885e-4b5d37997e6d'",
+          "default": "'5d40992d-bb28-4a33-b897-40eb01aedaf8'",
           "mappedType": "uuid"
         },
         "symbol": {
@@ -80,7 +80,7 @@
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "default": "'53964d99-6be7-4b9b-a823-6f3ae47058a4'",
+          "default": "'8dc5a557-683f-4aaa-8d55-4253add96a78'",
           "mappedType": "uuid"
         }
       },
@@ -111,7 +111,7 @@
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "default": "'fa0b199d-2757-4268-8f18-b635e25f0b1c'",
+          "default": "'768fcaf0-750e-409f-bc86-bc299308780b'",
           "mappedType": "uuid"
         },
         "asset_id": {
@@ -121,7 +121,7 @@
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "default": "'84b7f745-6d52-4205-b618-665eea63010c'",
+          "default": "'bd34145f-2a47-40ea-896c-9ffac288ecd0'",
           "mappedType": "uuid"
         },
         "quantity": {
@@ -236,7 +236,7 @@
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "default": "'afa13209-8728-459f-8ff5-46b6325fa380'",
+          "default": "'8f99cdbf-4423-4cb7-8991-cd818fcd1d76'",
           "mappedType": "uuid"
         },
         "balance": {

@@ -40,6 +40,15 @@ export class OrderEntity {
   @Property({ type: 'uuid', nullable: false })
   accountId: string;
 
+  @Property({ type: 'date', onCreate: () => new Date() })
+  createdAt = new Date();
+
+  @Property({ type: 'date', onUpdate: () => new Date() })
+  updatedAt = new Date();
+
+  @Property({ type: 'date', default: null, nullable: true })
+  deletedAt?: Date | null;
+
   /* Associations */
   @ManyToOne(() => AssetEntity, { fieldName: 'assetId' })
   asset: AssetEntity;
