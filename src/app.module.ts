@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AccountsModule } from './accounts/accounts.module';
 import { AssetsModule } from './assets/assets.module';
 import { DatabaseModule } from './database/database.module';
+import { MarketModule } from './market/market.module';
 import { OrdersModule } from './orders/orders.module';
 import { PortfoliosModule } from './portfolios/portfolios.module';
 import { TransactionsModule } from './transactions/transactions.module';
@@ -25,6 +26,7 @@ import { AppService } from './app.service';
     PortfoliosModule,
     OrdersModule,
     TransactionsModule,
+    MarketModule,
   ],
   controllers: [AppController],
   providers: [AppService],
